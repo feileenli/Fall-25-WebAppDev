@@ -2,7 +2,7 @@
 
 let photos = [];
 let index = 0;
-let slideshowInterval = null;
+let intervalID = null;
 
 function main() {
     document.querySelector("#photoName").value = "InitialImage.jpg";
@@ -124,7 +124,7 @@ function startSlideShow() {
         return;
     }
     stopSlideShow();
-    slideshowInterval = setInterval(loadNextPhoto, 1000);
+    intervalID = setInterval(loadNextPhoto, 1000);
 }
 
 function startRandomSlideShow() {
@@ -132,16 +132,17 @@ function startRandomSlideShow() {
         return;
     }
     stopSlideShow();
-    slideshowInterval = setInterval(() => { 
-        index = Math.floor(Math.random() * photos.length);
-        changePhoto();
-    }, 1000);
+    intervalID = setInterval(
+        () => { 
+            index = Math.floor(Math.random() * photos.length);
+            changePhoto();
+        }, 1000);
 }
 
 function stopSlideShow() {
-    if (slideshowInterval) {
-        clearInterval(slideshowInterval);
-        slideshowInterval = null;
+    if (intervalID) {
+        clearInterval(intervalID);
+        intervalID = null;
     }
 }
 
