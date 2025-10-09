@@ -1,112 +1,140 @@
 "use strict";
 
 let photos = [];
-let currentIndex = 0;
+let index = 0;
 let slideshowInterval = null;
 
 function main() {
+    document.querySelector("#photoName").value = "InitialImage.jpg";
     document.querySelector("#loadPhotos").addEventListener("click", loadPhotos);
     document.querySelector("#loadJSON").addEventListener("click", loadJSON);
-    document.querySelector("#firstPhoto").addEventListener("click", showFirstPhoto);
-    document.querySelector("#lastPhoto").addEventListener("click", showLastPhoto);
-    document.querySelector("#nextPhoto").addEventListener("click", showNextPhoto);
-    document.querySelector("#prevPhoto").addEventListener("click", showPrevPhoto);
+    document.querySelector("#photos").addEventListener("click", loadNextPhoto);
+    document.querySelector("#firstPhoto").addEventListener("click", loadFirstPhoto);
+    document.querySelector("#lastPhoto").addEventListener("click", loadLastPhoto);
+    document.querySelector("#nextPhoto").addEventListener("click", loadNextPhoto);
+    document.querySelector("#prevPhoto").addEventListener("click", loadPrevPhoto);
     document.querySelector("#slideShow").addEventListener("click", startSlideShow);
     document.querySelector("#randomSlideShow").addEventListener("click", startRandomSlideShow);
     document.querySelector("#stopSlideShow").addEventListener("click", stopSlideShow);
-    document.querySelector("#resetForm").addEventListener("click", resetForm);
-    document.querySelector("#photoDisplay").addEventListener("click", showNextPhoto);
-
-    document.querySelector("#photoName").value = "InitialImage.jpg";
+    document.querySelector("#reset").addEventListener("click", resetForm);
 }
 
 window.onload = main;
 
-function setStatus(message) {
+function setStatusMsg(message) {
     document.querySelector("#statusMessage").innerText = message;
 }
 
-function updatePhotoDisplay() {
-    if (photos.length === 0) return;
-    document.querySelector("#photoDisplay").src = photos[currentIndex];
-    document.querySelector("#photoName").value = photos[currentIndex];
+function changePhoto() {
+    if (photos.length === 0) {
+        return;
+    }
+    document.querySelector("#photos").src = photos[index];
+    document.querySelector("#photoName").value = photos[index];
 }
 
 function loadPhotos() {
-    const folder = document.querySelector("#folderName").value.trim();
-    const common = document.querySelector("#commonName").value.trim();
-    const start = parseInt(document.querySelector("#startNumber").value);
-    const end = parseInt(document.querySelector("#endNumber").value);
+    const folder = document.querySelector("#folder").value.trim();
+    const name = document.querySelector("#name").value.trim();
+    const start = parseInt(document.querySelector("#start").value);
+    const end = parseInt(document.querySelector("#end").value);
 
-    if (isNaN(start) || isNaN(end) || end < start) {
-        setStatus("Error: Invalid Range");
+    if (end < start) {
+        setStatusMsg("Error: Invalid Range");
         return;
     }
 
     photos = [];
     for (let i = start; i <= end; i++) {
-        photos.push(`${folder}${common}${i}.jpg`);
+        photos.push(`${folder}${name}${i}.jpg`);
     }
 
-    currentIndex = 0;
-    setStatus("Photo Viewer System");
-    updatePhotoDisplay();
+    index = 0;
+    setStatusMsg("Photo Viewer System");
+    changePhoto();
 }
 
 function loadJSON() {
     const jsonURL = document.querySelector("#jsonURL").value.trim();
-    if (!jsonURL) {
-        setStatus("Error: JSON URL is required");
-        return;
-    }
-
+    /* LAMBDA */
     fetch(jsonURL)
         .then(response => response.json())
         .then(data => {
-            photos = data.images.map(img => img.imageURL); /* LAMBDA */
-            currentIndex = 0;
-            setStatus("Photo Viewer System");
-            updatePhotoDisplay();
-        })
-        .catch(err => setStatus("Error loading JSON"));
+            photos = data.images.map(img => img.imageURL); 
+            index = 0;
+            setStatusMsg("Photo Viewer System");
+            changePhoto();
+        });
 }
 
-function showFirstPhoto() {
-    if (!checkLoaded()) return;
-    currentIndex = 0;
-    updatePhotoDisplay();
+function isLoaded() {
+    if (photos.length === 0) {
+        setStatusMsg("Error: you must load data first");
+        return false;
+    }
+    return true;
 }
 
-function showLastPhoto() {
-    if (!checkLoaded()) return;
-    currentIndex = photos.length - 1;
-    updatePhotoDisplay();
+function loadFirstPhoto() {
+    if (!isLoaded()) {
+        return;
+    }
+    index = 0;
+    changePhoto();
 }
 
-function showNextPhoto() {
-    if (!checkLoaded()) return;
-    currentIndex = (currentIndex + 1) % photos.length;
-    updatePhotoDisplay();
+function loadLastPhoto() {
+    if (!isLoaded()) {
+        return;
+    }
+    index = photos.length - 1;
+    changePhoto();
 }
 
-function showPrevPhoto() {
-    if (!checkLoaded()) return;
-    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
-    updatePhotoDisplay();
+function loadNextPhoto() {
+    if (!isLoaded()) {
+        return;
+    }
+
+    if (index == photos.length - 1) {
+        index = 0;
+    } else {
+        index = index + 1
+    }
+
+    changePhoto();
+}
+
+function loadPrevPhoto() {
+    if (!isLoaded()) {
+        return;
+    }
+
+    if (index == 0) {
+        index = photos.length - 1;
+    } else {
+        index = index - 1;
+    }
+
+    changePhoto();
 }
 
 function startSlideShow() {
-    if (!checkLoaded()) return;
+    if (!isLoaded()) {
+        return;
+    }
     stopSlideShow();
-    slideshowInterval = setInterval(showNextPhoto, 1000);
+    slideshowInterval = setInterval(loadNextPhoto, 1000);
 }
 
 function startRandomSlideShow() {
-    if (!checkLoaded()) return;
+    if (!isLoaded()) {
+        return;
+    }
     stopSlideShow();
-    slideshowInterval = setInterval(() => { /* LAMBDA */
-        currentIndex = Math.floor(Math.random() * photos.length);
-        updatePhotoDisplay();
+    slideshowInterval = setInterval(() => { 
+        index = Math.floor(Math.random() * photos.length);
+        changePhoto();
     }, 1000);
 }
 
@@ -119,21 +147,15 @@ function stopSlideShow() {
 
 function resetForm() {
     stopSlideShow();
-    document.querySelector("#folderName").value = "";
-    document.querySelector("#commonName").value = "";
-    document.querySelector("#startNumber").value = "";
-    document.querySelector("#endNumber").value = "";
-    setStatus("");
-    photos = [];
-    currentIndex = 0;
-    document.querySelector("#photoDisplay").src = "InitialImage.jpg";
+    document.querySelector("#folder").value = "";
+    document.querySelector("#name").value = "";
+    document.querySelector("#start").value = "";
+    document.querySelector("#end").value = "";
+    document.querySelector("#photos").src = "InitialImage.jpg";
     document.querySelector("#photoName").value = "InitialImage.jpg";
+    setStatusMsg("");
+    photos = [];
+    index = 0;
 }
 
-function checkLoaded() {
-    if (photos.length === 0) {
-        setStatus("Error: you must load data first");
-        return false;
-    }
-    return true;
-}
+

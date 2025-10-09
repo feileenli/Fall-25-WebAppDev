@@ -10,12 +10,9 @@
     <div id="container">
         <h1 id="title">Photo Viewer</h1>
 
-        <div id="slideshow-container">
-            <img id="photoDisplay" src="InitialImage.jpg" alt="Photo Viewer">
-        </div>
+        <img id="photos" src="InitialImage.jpg" alt="Photo Viewer">
 
-        <div id="controls-container">
-            <!-- Status Box -->
+        <div id="form-container">
             <fieldset class="box" id="status-box">
                 <legend>Status</legend>
                 <div class="row">
@@ -25,20 +22,19 @@
                 <div id="statusMessage"></div>
             </fieldset>
 
-            <!-- Loading Images (Local Folder) -->
             <fieldset class="box">
                 <legend>Loading Images (Local Folder)</legend>
                 <div class="row">
-                    <label for="folderName">Folder:</label>
-                    <input type="text" id="folderName">
-                    <label for="commonName">Common Name:</label>
-                    <input type="text" id="commonName">
+                    <label for="folder">Photo's Folder:</label>
+                    <input type="text" id="folder">
+                    <label for="name">Common Name:</label>
+                    <input type="text" id="name">
                 </div>
                 <div class="row">
-                    <label for="startNumber">Start #:</label>
-                    <input type="number" id="startNumber">
-                    <label for="endNumber">End #:</label>
-                    <input type="number" id="endNumber">
+                    <label for="start">Start Photo Number:</label>
+                    <input type="number" id="start">
+                    <label for="end">End Photo Number:</label>
+                    <input type="number" id="end">
                 </div>
                 <div class="row">
                     <button id="loadPhotos">Load Photos</button>
@@ -59,25 +55,24 @@
             <fieldset class="box">
                 <legend>Iterating</legend>
                 <div class="row">
-                    <button id="firstPhoto">First</button>
-                    <button id="prevPhoto">Previous</button>
-                    <button id="nextPhoto">Next</button>
-                    <button id="lastPhoto">Last</button>
+                    <button id="prevPhoto">Previous Photo</button>
+                    <button id="nextPhoto">Next Photo</button>
+                    <button id="firstPhoto">First Photo</button>
+                    <button id="lastPhoto">Last Photo</button>
                 </div>
             </fieldset>
 
-            <!-- Slideshows -->
             <fieldset class="box">
-                <legend>Slideshows</legend>
+                <legend>SlideShows</legend>
                 <div class="row">
-                    <button id="slideShow">Slideshow</button>
+                    <button id="slideShow">SlideShow</button>
                     <button id="randomSlideShow">RandomSlideShow</button>
                     <button id="stopSlideShow">StopSlideShow</button>
                 </div>
             </fieldset>
 
             <div class="row">
-                <button id="resetForm">Reset Form Values</button>
+                <button id="reset">Reset Form Values</button>
             </div>
             
         </div>
