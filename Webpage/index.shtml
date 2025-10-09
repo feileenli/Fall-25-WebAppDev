@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMD HTML/CSS Summer Camp</title>
+    <link rel="stylesheet" href="Summer.css" type="text/css">
+</head>
+<body>
+    <div class="box-1"> 
+        <div class="box-content">
+            <header class="box-header">
+                <div id="globe">
+                  <a href="https://www.cs.umd.edu/" target="_blank"><img src="UMDGlobe.gif" alt="UMD Globe"></a>
+                </div>
+                <div id="title">
+                  <h1>Department of Computer Science</h1>
+                </div>
+            </header>
+            <h2 class="subheader">UMD HTML/CSS Summer Camp</h2>
+            <main class="box-main-content">
+                <p class="first-paragraph">
+                    <span class="capital-letter">T</span>he UMD HTML/CSS Summer camp provides seminars to introduce adults to HTML and CSS.
+                    <br>
+                    Located in the heart of the <strong>City of College Park</strong>, the camp is a two-week program starting June 1st<br>and ending on June 22nd. 
+                </p>
+                <h3>Schedule</h3>
+                <table class="schedule-table">
+                    <caption class="table-title"><i>Weekly Schedule</i></caption>
+                    <thead>
+                      <tr>
+                        <th>Week</th>
+                        <th>Monday</th>
+                        <th>Wednesday</th>
+                        <th>Friday</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">#1</td>
+                        <td>HTML Intro</td>
+                        <td>Images</td>
+                        <td><Strong>Editors</Strong></td>
+                      </tr>
+                      <tr>
+                        <td>HTML Tags</td>
+                        <td>Tables</td>
+                        <td><i>Validators</i></td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                          <td rowspan="2">#2</td>
+                          <td>CSS Intro</td>
+                          <td colspan="2"> <a href="https://umd.edu/visit" target="_blank" title="Virtual Tour">Campus Tour</a></td>
+                      </tr>
+                      <tr>
+                          <td>Layout</td>
+                          <td>Menus</td>
+                          <td>Other</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <h3>Resources</h3>
+                <ol class="resources-list"> 
+                    <li>Online Learning
+                      <ul class="sub-list-a">
+                        <li><a href="http://www.htmldog.com/" target="_blank">http://www.htmldog.com/</a></li>
+                        <li><a href="http://www.w3schools.com/" target="_blank">http://www.w3schools.com/</a></li>
+                      </ul>
+                    </li>
+                    <li>Validators
+                      <ol class="sub-list-b">
+                        <li><a href="http://validator.w2.org/#validate-by-upload/" target="_blank">http://validator.w2.org/#validate-by-upload/</a></li>
+                        <li><a href="http://jigsaw.w3.org/css-validator/" target="_blank">http://jigsaw.w3.org/css-validator/</a></li>
+                      </ol>
+                    </li>
+                  </ol>
+                <h3>Additional Information</h3>
+                <p class="info">
+                    Information about your class instructor can be found at <a href="https://www.cs.umd.edu/~nelson/" target="_blank">Instructor.html</a>
+                </p>
+                <p class="copyright">
+                    &copy; Copyright UMD | UMD HTML/CSS Summer Camp | <i>All Rights Reserved.</i>
+                </p>
+                <p class="developed">
+                    Developed by: Sarah J. Smith
+                </p>
+                <footer>
+                  <hr>
+                </footer>
+            </main>
+        </div>
+    </div>
+  </body>
+</html>

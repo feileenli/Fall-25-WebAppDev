@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog Inquiry</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div id="green-border">
+        <img src="images/JimHenson.jpg" alt="Background" id="background-image">
+
+        <header>
+            <h2>Catalog Inquiry</h2>
+        </header>
+
+        <div id="form-container">
+            <form action="http://npp.cs.umd.edu/cmsc335/projects/TerpStore/catalogInquiry.php" method="get">
+                
+                <div class="form-row horizontal">
+                    <label for="item-choice">Item Category</label>
+                    <select id="item-choice" name="item-choice" required autofocus>
+                        <option value="">Select an item</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="books">Books</option>
+                        <option value="music">Music</option>
+                        <option value="food">Food</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-row horizontal">
+                    <label for="maximumCost">Maximum Cost ($)</label>
+                    <input type="number" id="maximumCost" name="maximumCost" min="1" max="1000" step="5" value="1">
+                </div>
+
+                <div class="form-row checkbox-row">
+                    <input type="checkbox" id="availableOnCampus" name="availableOnCampus">
+                    <label for="availableOnCampus">Available on Campus</label>
+                </div>
+
+                <div class="form-row checkbox-row">
+                    <input type="checkbox" id="availableOnline" name="availableOnline" checked>
+                    <label for="availableOnline">Available Online</label>
+                </div>
+
+                <div class="form-row">
+                    <label for="info">Additional Information:</label>
+                    <textarea id="info" name="info" rows="8"></textarea>
+                </div>
+
+                <div class="form-row horizontal">
+                    <label for="email">Contact Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="example@terpmail.umd.edu">
+                </div>
+
+                <div class="form-row button-row">
+                    <button type="submit">Submit Inquiry</button>
+                    <button type="reset" id="clear">Clear</button>
+                </div>
+            </form>
+        </div>
+
+        <!--#include file="footer.shtml" -->
+    </div>
+</body>
+</html>

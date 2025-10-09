@@ -1,0 +1,145 @@
+/* Do not remove this rule */
+html {
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+    
+  body {  
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+  }
+    
+  .box-1 {
+    width: 42rem;
+    height: 50rem;
+    padding: 1rem;
+    background-color: #fff;
+    text-align: center;    
+    border: 0.6rem solid blue;
+    
+    box-shadow:
+      0 0 0 0.82rem antiquewhite,
+      0 0 0 1rem brown,
+      0 0 0 1.15rem antiquewhite,
+      0 0 0 1.3rem brown,
+      0 0 0 2.8rem antiquewhite;
+  }
+  
+  .box-header {
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+  }
+
+  .box-content {
+    margin: 1rem;
+    line-height: 1rem;
+  }
+
+  #globe img {
+    height: 6rem;
+    width: 7rem;
+  }
+
+  #title h1 {
+    font-family: Snell Roundhand, cursive;
+    font-size: 2.4rem; 
+    margin: 0; 
+    text-shadow: 0.2rem 0.2rem 0.6rem #888;
+    white-space: nowrap;
+  }
+
+.subheader {
+    font-size: 1.5rem;
+    text-align: left; 
+    text-decoration: underline;
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+.box-main-content {
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.first-paragraph {
+    padding-top: 1rem;
+    text-align: left;
+    color: brown;
+    line-height: 1.3rem;
+
+}
+
+.first-paragraph:hover {
+  color: red;
+}
+
+.first-paragraph::first-letter {
+    font-size: 2.5rem;
+    line-height: 1rem;
+    font-weight: bold;
+}
+  
+h3 {
+    text-decoration: underline;
+    font-size: 1.2rem;
+}
+
+.resources-list {
+    list-style-type: upper-alpha; 
+    font-size: 0.9rem;
+}
+  
+.sub-list-a {
+    list-style-type: circle;
+}
+  
+.sub-list-b {
+    list-style-type: decimal;
+}
+
+.info {
+    color: brown;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 0.1rem solid black;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 0.7rem;
+}
+  
+.schedule-table th {
+    font-weight: bold;
+}
+
+.schedule-table {
+    border: 0.1rem solid black
+}
+
+thead {
+    background-color: antiquewhite;
+    color: brown;
+}
+
+caption {
+    text-decoration: underline;
+    color: blue;
+    font-size: 0.9rem;
+}
+
+p {
+  font-size: 0.86rem;
+}
+
+footer {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+
+

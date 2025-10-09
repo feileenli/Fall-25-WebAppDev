@@ -1,0 +1,195 @@
+/* You implement */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+
+#green-border {
+    width: 800px;             
+    height: 800px;              
+    border: 10px solid green;   
+    position: relative;         
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;  
+    padding: 10px;   
+}
+
+#background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;      
+}
+
+header h2 {
+    color: azure;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    font-size: 44px;
+    text-decoration: underline;
+    margin-top: 0;
+}
+
+#links-container {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;       
+    justify-content: center;
+}
+
+#links {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;       
+    justify-content: center;
+    flex: 1;     
+    background-color: rgb(211,211,211, 0.8);
+    padding-left: 50px;
+    padding-right: 50px;      
+}
+
+#links a {
+    display: block;
+    color: brown;
+    font-size: 24px;
+    transition: font-size 0.2s ease;
+}
+
+#links a:visited {
+    color: beige;
+}
+
+#links a:hover {
+    font-size: 20px;
+}
+
+footer {
+    align-self: flex-end; 
+    color: white;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 100%;
+}
+
+#form-container {
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 5px solid azure;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+label {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-row.horizontal {
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-row.creditcard {
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-row.creditcard input {
+    width: 3em;         
+    text-align: center;
+}
+
+.dash {
+    margin-right: 7px;
+}
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input, select, textarea {
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+
+input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.checkbox-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-row label {
+    margin-left: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.button-row {
+    flex-direction: row;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: double;
+    border: 3px double black;
+}
+
+#clear {
+    margin-left: 13px;
+}
+
+footer {
+    margin-top: auto;           
+    background-color: red;       
+    color: beige;             
+    text-align: center;
+    padding: 25px;
+    text-decoration: underline;  
+    width: 100%;                 
+    box-sizing: border-box;   
+    font-size: 25px;   
+    box-shadow: 
+    0 0 0 5px rgb(143, 143, 143), 
+    0 0 0 10px rgb(204, 204, 204),
+    0 0 0 15px rgb(219, 244, 244); 
+}
+
+footer a {
+    color: beige;                
+    text-decoration: underline;  
+}
