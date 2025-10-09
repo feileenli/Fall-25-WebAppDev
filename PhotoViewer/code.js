@@ -123,7 +123,6 @@ function startSlideShow() {
     if (!isLoaded()) {
         return;
     }
-    stopSlideShow();
     intervalID = setInterval(loadNextPhoto, 1000);
 }
 
@@ -131,7 +130,6 @@ function startRandomSlideShow() {
     if (!isLoaded()) {
         return;
     }
-    stopSlideShow();
     intervalID = setInterval(
         () => { 
             index = Math.floor(Math.random() * photos.length);
@@ -154,6 +152,7 @@ function resetForm() {
     document.querySelector("#end").value = "";
     document.querySelector("#photos").src = "InitialImage.jpg";
     document.querySelector("#photoName").value = "InitialImage.jpg";
+    document.querySelector("#jsonURL").value = "";
     setStatusMsg("");
     photos = [];
     index = 0;
